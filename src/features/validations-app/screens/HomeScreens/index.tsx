@@ -19,7 +19,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import * as Device from 'expo-device';
+// import * as Device from 'expo-device';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Section({children, title}: SectionProps): JSX.Element {
+const Section = ({children, title}: SectionProps): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -70,7 +70,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+const Home = (): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -87,11 +87,11 @@ function App(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
-        <TouchableOpacity onPress={() => {
+        {/* <TouchableOpacity onPress={() => {
           console.log('teste: ', Device.brand);
         }}>
           <Text>Testes</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -116,4 +116,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export default Home;
