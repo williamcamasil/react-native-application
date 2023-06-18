@@ -12,10 +12,14 @@ yarn add expo-device
 
 ### Configuração do Jest
 
-https://callstack.github.io/react-native-testing-library/docs/getting-started
+[Documentação](https://callstack.github.io/react-native-testing-library/docs/getting-started)
 
 ```
 yarn add --dev @testing-library/react-native
 
 yarn add --dev @testing-library/jest-native
 ```
+
+### Configurando o eslint e prettier
+
+Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) se baseando na execução dos comandos com yarn.
