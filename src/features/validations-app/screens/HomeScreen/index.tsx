@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React from 'react';
 import type { PropsWithChildren } from 'react';
 import {
@@ -18,6 +20,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import NavigatorParamList from '../../../../routes/types';
 
 // import * as Device from 'expo-device';
 
@@ -79,6 +82,12 @@ const Home = (): JSX.Element => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
+
+  const handleNavigation = () => {
+    navigation.navigate('Second');
+  };
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -87,11 +96,9 @@ const Home = (): JSX.Element => {
       />
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <Header />
-        {/* <TouchableOpacity onPress={() => {
-          console.log('teste: ', Device.brand);
-        }}>
+        <TouchableOpacity onPress={handleNavigation}>
           <Text>Testes</Text>
-        </TouchableOpacity> */}
+        </TouchableOpacity>
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
