@@ -82,10 +82,10 @@ const Home = (): JSX.Element => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
+  // const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
   const handleNavigation = () => {
-    navigation.navigate('Second');
+    // navigation.navigate('Second');
   };
 
   return (

@@ -23,3 +23,19 @@ yarn add --dev @testing-library/jest-native
 ### Configurando o eslint e prettier
 
 Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) se baseando na execução dos comandos com yarn.
+
+### TODO
+
+[OK] criação do app com expo
+[OK] configuração do jest
+[OK] configuração do eslint e prettier
+[OK] navegação entre páginas
+[] configuração de tema
+[] adicionando mock
+[] configuração de pipeline
+[] configuração de chamadas API
+[] configuração de asyncstorage
+[] configuração de context api
+[] autenticação com google analytics
+[] configuração do husky
+[] configuração do storybook
