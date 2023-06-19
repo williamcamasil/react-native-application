@@ -26,16 +26,16 @@ Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) s
 
 ### TODO
 
-[OK] criação do app com expo
-[OK] configuração do jest
-[OK] configuração do eslint e prettier
-[OK] navegação entre páginas
-[] configuração de tema
-[] adicionando mock
-[] configuração de pipeline
-[] configuração de chamadas API
-[] configuração de asyncstorage
-[] configuração de context api
-[] autenticação com google analytics
-[] configuração do husky
-[] configuração do storybook
+- [OK] criação do app com expo
+- [OK] configuração do jest
+- [OK] configuração do eslint e prettier
+- [OK] navegação entre páginas
+- [] configuração de tema
+- [] adicionando mock
+- [] configuração de pipeline
+- [] configuração de chamadas API
+- [] configuração de asyncstorage
+- [] configuração de context api
+- [] autenticação com google analytics
+- [] configuração do husky
+- [] configuração do storybook
