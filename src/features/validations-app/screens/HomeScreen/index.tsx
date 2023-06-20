@@ -21,6 +21,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import NavigatorParamList from '../../../../routes/types';
+import { useTheme } from '../../../../styles';
 
 // import * as Device from 'expo-device';
 
@@ -76,6 +77,7 @@ const Section = ({ children, title }: SectionProps): JSX.Element => {
 };
 
 const Home = (): JSX.Element => {
+  const theme = useTheme();
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -97,7 +99,7 @@ const Home = (): JSX.Element => {
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <Header />
         <TouchableOpacity onPress={handleNavigation}>
-          <Text>Testes</Text>
+          <Text style={{ color: theme.colors.primary700 }}>Testes</Text>
         </TouchableOpacity>
         <View
           style={{
