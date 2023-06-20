@@ -37,7 +37,7 @@ Após criação das pastas styles, tokens e hooks com os arquivos, fazer a insta
 - [OK] configuração do jest
 - [OK] configuração do eslint e prettier
 - [OK] navegação entre páginas
-- [] configuração de tema
+- [OK] configuração de tema
 - [] adicionando mock
 - [] criação de componentes mais comuns
 - [] configuração de pipeline
