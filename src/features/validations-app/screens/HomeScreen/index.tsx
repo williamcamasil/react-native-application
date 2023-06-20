@@ -22,6 +22,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import NavigatorParamList from '../../../../routes/types';
 import { useTheme } from '../../../../styles';
+import { useTextStyles, useViewStyles } from '../../../../hooks';
 
 // import * as Device from 'expo-device';
 
@@ -84,6 +85,25 @@ const Home = (): JSX.Element => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const backgroundStyles = useViewStyles(
+    () => [
+      {
+        backgroundColor: theme.colors.primaryMain,
+      },
+    ],
+    [theme.colors.primaryMain]
+  );
+
+  const colorStyles = useTextStyles(
+    () => [
+      {
+        color: theme.colors.primary500,
+        padding: theme.spacings.sNano,
+      },
+    ],
+    [theme.colors.primaryMain]
+  );
+
   // const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
   const handleNavigation = () => {
@@ -99,7 +119,7 @@ const Home = (): JSX.Element => {
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
         <Header />
         <TouchableOpacity onPress={handleNavigation}>
-          <Text style={{ color: theme.colors.primary700 }}>Testes</Text>
+          <Text style={[{ color: theme.colors.neutralBlack }, backgroundStyles]}>Testes</Text>
         </TouchableOpacity>
         <View
           style={{
@@ -107,8 +127,8 @@ const Home = (): JSX.Element => {
           }}
         >
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this screen and then come
-            back to see your edits.
+            Edit <Text style={colorStyles}>App.tsx</Text> to change this screen and then come back
+            to see your edits.
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />

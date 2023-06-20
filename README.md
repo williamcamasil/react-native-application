@@ -24,6 +24,13 @@ yarn add --dev @testing-library/jest-native
 
 Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) se baseando na execução dos comandos com yarn.
 
+### Configuração de tema
+
+Após criação das pastas styles, tokens e hooks com os arquivos, fazer a instalação das libs.
+
+- [react-theme-provider](https://github.com/callstack/react-theme-provider)
+- [react-hooks-testing-library](https://github.com/testing-library/react-hooks-testing-library#installation)
+
 ### TODO
 
 - [OK] criação do app com expo
@@ -32,6 +39,7 @@ Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) s
 - [OK] navegação entre páginas
 - [] configuração de tema
 - [] adicionando mock
+- [] criação de componentes mais comuns
 - [] configuração de pipeline
 - [] configuração de chamadas API
 - [] configuração de asyncstorage
