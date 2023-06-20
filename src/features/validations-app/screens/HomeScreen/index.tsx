@@ -13,13 +13,6 @@ import {
   View,
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import NavigatorParamList from '../../../../routes/types';
 import { useTheme } from '../../../../styles';
 import { useTextStyles, useViewStyles } from '../../../../hooks';
@@ -35,110 +28,66 @@ const styles = StyleSheet.create({
     marginTop: 32,
     paddingHorizontal: 24,
   },
-  sectionTitle: {
-    fontSize: 24,
+  title: {
+    fontSize: 16,
     fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+    color: '#000',
   },
 });
 
 const Section = ({ children, title }: SectionProps): JSX.Element => {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}
-      >
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}
-      >
-        {children}
-      </Text>
+      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{children}</Text>
     </View>
   );
 };
 
 const Home = (): JSX.Element => {
   const theme = useTheme();
-  const isDarkMode = useColorScheme() === 'dark';
+  const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  const backgroundStyles = useViewStyles(
+  const buttonStyles = useViewStyles(
     () => [
       {
-        backgroundColor: theme.colors.primaryMain,
+        backgroundColor: theme.colors.secondaryMain,
+        padding: theme.spacings.sXS,
+        margin: theme.spacings.sXXS,
+        borderRadius: theme.borders.radius.quark,
       },
     ],
     [theme.colors.primaryMain]
   );
 
-  const colorStyles = useTextStyles(
+  const textStyles = useTextStyles(
     () => [
       {
-        color: theme.colors.primary500,
-        padding: theme.spacings.sNano,
+        color: theme.colors.neutralWhite,
+        textAlign: 'center',
       },
     ],
     [theme.colors.primaryMain]
   );
-
-  // const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
   const handleNavigation = () => {
-    // navigation.navigate('Second');
+    navigation.navigate('Second');
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView>
       <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+        // barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={theme.colors.feedbackError500}
       />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
-        <Header />
-        <TouchableOpacity onPress={handleNavigation}>
-          <Text style={[{ color: theme.colors.neutralBlack }, backgroundStyles]}>Testes</Text>
-        </TouchableOpacity>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}
-        >
-          <Section title="Step One">
-            Edit <Text style={colorStyles}>App.tsx</Text> to change this screen and then come back
-            to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">Read the docs to discover what to do next:</Section>
-          <LearnMoreLinks />
+      <ScrollView contentInsetAdjustmentBehavior="automatic">
+        <View>
+          <Section title="TELA 1">Tela com funcionalidades</Section>
         </View>
+
+        <TouchableOpacity style={buttonStyles} onPress={handleNavigation}>
+          <Text style={textStyles}>Acessa 2° Tela</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

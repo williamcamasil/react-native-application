@@ -38,10 +38,12 @@ Após criação das pastas styles, tokens e hooks com os arquivos, fazer a insta
 - [OK] configuração do eslint e prettier
 - [OK] navegação entre páginas
 - [OK] configuração de tema
-- [] adicionando mock
-- [] criação de componentes mais comuns
-- [] configuração de pipeline
+- [] passagem de parametro entre telas
 - [] configuração de chamadas API
+- [] adicionando mock (Json Server)
+- [] criação de componentes mais comuns
+- [] adicionando imagens e svgs
+- [] configuração de pipeline
 - [] configuração de asyncstorage
 - [] configuração de context api
 - [] autenticação com google analytics
