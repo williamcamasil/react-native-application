@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
   SafeAreaView,
@@ -16,6 +16,7 @@ import {
 import NavigatorParamList from '../../../../routes/types';
 import { useTheme } from '../../../../styles';
 import { useTextStyles, useViewStyles } from '../../../../hooks';
+import { service, UserType } from '../../../../service/RequestDefaultService';
 
 // import * as Device from 'expo-device';
 
@@ -46,6 +47,7 @@ const Section = ({ children, title }: SectionProps): JSX.Element => {
 
 const Home = (): JSX.Element => {
   const theme = useTheme();
+  const [userData, setUserData] = useState<UserType>();
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
   const buttonStyles = useViewStyles(
@@ -74,6 +76,21 @@ const Home = (): JSX.Element => {
     navigation.navigate('Second');
   };
 
+  const getUser = useCallback(async () => {
+    const response = await service.getUserData(1);
+    setUserData(response!);
+  }, []);
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  const renderUserData = () => {
+    if (!userData) return null;
+
+    return <Section title="TELA 2">FIRST NAME: {userData?.data.first_name}</Section>;
+  };
+
   return (
     <SafeAreaView>
       <StatusBar
@@ -81,12 +98,15 @@ const Home = (): JSX.Element => {
         backgroundColor={theme.colors.feedbackError500}
       />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View testID='first-screen'>
+        <View testID="first-screen">
           <Section title="TELA 1">Tela com funcionalidades</Section>
+          {renderUserData()}
         </View>
 
         <TouchableOpacity style={buttonStyles} onPress={handleNavigation}>
-          <Text testID='navigate-button' style={textStyles}>Acessa 2° Tela</Text>
+          <Text testID="navigate-button" style={textStyles}>
+            Acessa 2° Tela
+          </Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
