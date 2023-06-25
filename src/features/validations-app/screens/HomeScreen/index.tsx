@@ -81,12 +81,12 @@ const Home = (): JSX.Element => {
         backgroundColor={theme.colors.feedbackError500}
       />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
+        <View testID='first-screen'>
           <Section title="TELA 1">Tela com funcionalidades</Section>
         </View>
 
         <TouchableOpacity style={buttonStyles} onPress={handleNavigation}>
-          <Text style={textStyles}>Acessa 2° Tela</Text>
+          <Text testID='navigate-button' style={textStyles}>Acessa 2° Tela</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

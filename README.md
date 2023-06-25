@@ -20,6 +20,19 @@ yarn add --dev @testing-library/react-native
 yarn add --dev @testing-library/jest-native
 ```
 
+#### Rodar o teste
+
+```
+yarn test
+yarn test --testPathPattern=HomeScreen
+ou instalar a extensão Jest Runner
+yarn test --coverage
+```
+
+#### Observações sobre os teste
+- Não é regra, mas é interessante ter apenas um expect dentro de cada teste;
+- 
+
 ### Configurando o eslint e prettier
 
 Usei esse [tutorial](https://github.com/devfraga/react-native-eslint-prettier) se baseando na execução dos comandos com yarn.
@@ -48,4 +61,4 @@ Após criação das pastas styles, tokens e hooks com os arquivos, fazer a insta
 - [] configuração de context api
 - [] autenticação com google analytics
 - [] configuração do husky
-- [] configuração do storybook
+- [] configuração do [storybook](https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/get-started/)
