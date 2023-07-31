@@ -18,8 +18,6 @@ import { useTheme } from '../../../../styles';
 import { useTextStyles, useViewStyles } from '../../../../hooks';
 import { service, UserType } from '../../../../service/RequestDefaultService';
 
-// import * as Device from 'expo-device';
-
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
@@ -45,9 +43,9 @@ const Section = ({ children, title }: SectionProps): JSX.Element => {
   );
 };
 
-const Home = (): JSX.Element => {
+const HomeScreen = (): JSX.Element => {
   const theme = useTheme();
-  const [userData, setUserData] = useState<UserType>();
+  const [userData, setUserData] = useState<UserType[]>();
   const navigation = useNavigation<NativeStackNavigationProp<NavigatorParamList>>();
 
   const buttonStyles = useViewStyles(
@@ -77,8 +75,9 @@ const Home = (): JSX.Element => {
   };
 
   const getUser = useCallback(async () => {
-    const response = await service.getUserData(1);
-    setUserData(response!);
+    const response = await service.getAllUsersData();
+    if (!response?.data) return null;
+    setUserData(response.data);
   }, []);
 
   useEffect(() => {
@@ -88,7 +87,7 @@ const Home = (): JSX.Element => {
   const renderUserData = () => {
     if (!userData) return null;
 
-    return <Section title="TELA 2">FIRST NAME: {userData?.data.first_name}</Section>;
+    return <Section title="TELA 2">FIRST NAME: {userData[0].first_name}</Section>;
   };
 
   return (
@@ -113,4 +112,4 @@ const Home = (): JSX.Element => {
   );
 };
 
-export default Home;
+export default HomeScreen;

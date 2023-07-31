@@ -8,7 +8,7 @@ import NavigatorParamList from './types';
 
 const Stack = createNativeStackNavigator<NavigatorParamList>();
 
-function AppRoutes() {
+const AppRoutes = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Home" component={Home} />
